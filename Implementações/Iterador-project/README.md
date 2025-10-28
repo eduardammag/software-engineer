@@ -19,19 +19,26 @@ O padrão **Iterator** permite percorrer os elementos de uma coleção **sem exp
 ##  Estrutura do Projeto
 
 projeto_iterator/
-├── main.py
 ├── interfaces/
-│ ├── iterator.py
-│ └── aggregate.py
+│   ├── iterator.py          # Interface Iterator
+│   ├── aggregate.py         # Interface Aggregate (coleção)
+│   └── __init__.py
 ├── colecoes/
-│ ├── lista.py
-│ ├── arvore.py
-│ └── grafo.py
-└── iterators/
-├── lista_iterator.py
-├── arvore_iterator.py
-├── grafo_dfs_iterator.py
-└── grafo_bfs_iterator.py
+│   ├── lista.py             # Coleção Lista
+│   ├── pilha.py             # Coleção Pilha
+│   ├── fila.py              # Coleção Fila
+│   ├── arvore.py            # Coleção Árvore
+│   ├── grafo.py             # Coleção Grafo
+│   └── __init__.py
+├── iterators/
+│   ├── lista_iterator.py    # Iterator da Lista
+│   ├── pilha_iterator.py    # Iterator da Pilha
+│   ├── fila_iterator.py     # Iterator da Fila
+│   ├── arvore_iterator.py   # Iterator da Árvore (DFS)
+│   ├── grafo_dfs_iterator.py# Iterator do Grafo (DFS)
+│   ├── grafo_bfs_iterator.py# Iterator do Grafo (BFS)
+│   └── __init__.py
+└── main.py                  # Código do cliente (testes e polimorfismo)
 
 
 ---
@@ -74,39 +81,41 @@ Este projeto demonstra como aplicar o **Padrão de Projeto Iterator** de forma *
 
 ---
 
-## Diagrama UML 
+## Diagrama de Classes
 
-               +-------------------+
-               |    Aggregate      |
-               |-------------------|
-               | + criar_iterator()|
-               +---------+---------+
-                         ^
-                         |
-+------------------------+------------------------------------------+
-|                        |                        |                 |
-|                        |                        |                 |
-|                        |                        |                 |
-v                        v                        v                 v
-+---------+        +---------+            +---------+        +-----------+
-|  Lista  |        |  Pilha  |            |  Fila   |        |  Arvore   |
-+---------+        +---------+            +---------+        +-----------+
-     |                  |                      |                    |
-     | usar Iterator    | usar Iterator        | usar Iterator      | usar Iterator
-     v                  v                      v                    v
-+-------------------+   +-------------------+   +----------------+   +----------------+
-|  ListaIterator    |   |  PilhaIterator    |   | FilaIterator   |   | ArvoreIterator |
-+-------------------+   +-------------------+   +----------------+   +----------------+
+```text
++-------------------+
+|     Aggregate     |
+|-------------------|
+| + criar_iterator()|
++---------+---------+
+          ^
+          |
++---------+------------------------------------------------+
+|         |                |               |             |
+|         |                |               |             |
+v         v                v               v
++---------+   +---------+  +---------+   +-----------+
+|  Lista  |   |  Pilha  |  |  Fila   |   |  Arvore   |
++---------+   +---------+  +---------+   +-----------+
+     |            |           |               |
+     | usar Iterator | usar Iterator | usar Iterator | usar Iterator
+     v            v           v               v
++-------------------+  +-------------------+  +----------------+  +----------------+
+|   ListaIterator   |  |   PilhaIterator   |  |   FilaIterator |  |  ArvoreIterator |
++-------------------+  +-------------------+  +----------------+  +----------------+
 
-                      Grafo
-                        |
-           +---------------------------+
-           | criar_iterator_dfs()     |
-           | criar_iterator_bfs()     |
-           +-------------+------------+
-                         |
-         +---------------+----------------+
-         |                                |
- +---------------+                +----------------+
- | GrafoDFSIterator|             |GrafoBFSIterator|
- +---------------+                +----------------+
++-------------------+
+|       Grafo       |
++-------------------+
+| criar_iterator_dfs() |
+| criar_iterator_bfs() |
++-------------+-------------+
+              |
+              |
+     +--------+--------+
+     |                 |
+     v                 v
++-------------------+  +----------------+
+|   GrafoDFSIterator |  | GrafoBFSIterator |
++-------------------+  +----------------+
