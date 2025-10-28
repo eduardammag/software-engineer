@@ -40,7 +40,7 @@ projeto_iterator/
 │   ├── grafo_bfs_iterator.py # Iterator do Grafo (BFS)
 │   └── __init__.py
 └── main.py                   # Código do cliente (testes e polimorfismo)
-
+```
 
 ---
 
