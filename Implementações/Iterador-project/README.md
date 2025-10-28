@@ -18,27 +18,28 @@ O padrão **Iterator** permite percorrer os elementos de uma coleção **sem exp
 
 ##  Estrutura do Projeto
 
+```text
 projeto_iterator/
 ├── interfaces/
-│   ├── iterator.py          # Interface Iterator
-│   ├── aggregate.py         # Interface Aggregate (coleção)
+│   ├── iterator.py           # Interface Iterator
+│   ├── aggregate.py          # Interface Aggregate (coleção)
 │   └── __init__.py
 ├── colecoes/
-│   ├── lista.py             # Coleção Lista
-│   ├── pilha.py             # Coleção Pilha
-│   ├── fila.py              # Coleção Fila
-│   ├── arvore.py            # Coleção Árvore
-│   ├── grafo.py             # Coleção Grafo
+│   ├── lista.py              # Coleção Lista
+│   ├── pilha.py              # Coleção Pilha
+│   ├── fila.py               # Coleção Fila
+│   ├── arvore.py             # Coleção Árvore
+│   ├── grafo.py              # Coleção Grafo
 │   └── __init__.py
 ├── iterators/
-│   ├── lista_iterator.py    # Iterator da Lista
-│   ├── pilha_iterator.py    # Iterator da Pilha
-│   ├── fila_iterator.py     # Iterator da Fila
-│   ├── arvore_iterator.py   # Iterator da Árvore (DFS)
-│   ├── grafo_dfs_iterator.py# Iterator do Grafo (DFS)
-│   ├── grafo_bfs_iterator.py# Iterator do Grafo (BFS)
+│   ├── lista_iterator.py     # Iterator da Lista
+│   ├── pilha_iterator.py     # Iterator da Pilha
+│   ├── fila_iterator.py      # Iterator da Fila
+│   ├── arvore_iterator.py    # Iterator da Árvore (DFS)
+│   ├── grafo_dfs_iterator.py # Iterator do Grafo (DFS)
+│   ├── grafo_bfs_iterator.py # Iterator do Grafo (BFS)
 │   └── __init__.py
-└── main.py                  # Código do cliente (testes e polimorfismo)
+└── main.py                   # Código do cliente (testes e polimorfismo)
 
 
 ---
