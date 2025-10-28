@@ -27,7 +27,7 @@ class Pilha(Aggregate):
     def esta_vazia(self):
         return len(self.elementos) == 0
     
-    def criar_iterador(self):
+    def criar_iterator(self):
         """
         Retorna o iterador concreto para percorrer a pilha do topo para a base.
         """
